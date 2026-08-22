@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Magical Storm of Love For You ⚡🌪️👶💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Quicksand:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            background: radial-gradient(ellipse at bottom, #19122e 0%, #0d091a 50%, #05020a 100%);
+            font-family: 'Quicksand', sans-serif;
+            color: #fff;
+            position: relative;
+            perspective: 1200px;
+        }
+
+        /* Lightning Flash Screen Overlay */
+        #lightning-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 117, 140, 0.4), rgba(162, 155, 254, 0.5), rgba(255, 255, 255, 0.6));
+            opacity: 0;
+            pointer-events: none;
+            z-index: 3;
+            mix-blend-mode: screen;
+            transition: opacity 0.08s ease-out;
+        }
+
+        /* Canvas for Stars, Meteors, Lightning Bolts & Tornado Vortex */
+        #sky-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Glowing Moon */
+        .moon-wrapper {
+            position: fixed;
+            top: 30px;
+            right: 35px;
+            z-index: 2;
+            pointer-events: none;
+            animation: moonFloat 4s ease-in-out infinite alternate;
+        }
+
+        .moon {
+            width: 85px;
+            height: 85px;
+            background: #fffdf2;
+            border-radius: 50%;
+            box-shadow: 0 0 35px #fffdf2, 0 0 70px #ffeaa7, 0 0 100px rgba(255, 105, 180, 0.5);
+            position: relative;
+        }
+
+        .moon::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 18px;
+            height: 18px;
+            background: rgba(0, 0, 0, 0.04);
+            border-radius: 50%;
+            box-shadow: 28px 18px 0 4px rgba(0,0,0,0.04), 8px 36px 0 2px rgba(0,0,0,0.04);
+        }
+
+        @keyframes moonFloat {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-8px); }
+        }
+
+        /* Cute Random Babies Floating & Popping in Random Areas */
+        .random-baby {
+            position: fixed;
+            pointer-events: none;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            font-size: 2.4rem;
+            animation: babyFloatFade 6s ease-in-out forwards;
+            filter: drop-shadow(0 0 18px rgba(255, 182, 193, 0.9));
+        }
+
+        .random-baby .baby-prop {
+            font-size: 1.5rem;
+            margin-left: -5px;
+            margin-top: -15px;
+            animation: wiggleBabyProp 2s infinite alternate ease-in-out;
+        }
+
+        @keyframes babyFloatFade {
+            0% {
+                transform: scale(0.3) translateY(25px) rotate(-10deg);
+                opacity: 0;
+            }
+            20% {
+                transform: scale(1.15) translateY(0) rotate(5deg);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1) translateY(-18px) rotate(-5deg);
+                opacity: 0.95;
+            }
+            80% {
+                transform: scale(1.05) translateY(-35px) rotate(4deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(0.4) translateY(-60px) rotate(15deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes wiggleBabyProp {
+            0% { transform: rotate(-10deg) scale(0.9); }
+            100% { transform: rotate(15deg) scale(1.1); }
+        }
+
+        /* Floating Flying Celestial Fairies & Wings */
+        .celestial-entity {
+            position: fixed;
+            z-index: 4;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            filter: drop-shadow(0 0 15px rgba(255, 117, 140, 0.8));
+        }
+
+        .celestial-entity .entity {
+            font-size: 2.6rem;
+            animation: entityFloat 2.2s ease-in-out infinite alternate;
+        }
+
+        .celestial-entity .sparkle-trail {
+            font-size: 1.6rem;
+            margin-left: -6px;
+            margin-top: -15px;
+            animation: sparklePulse 1.8s ease-in-out infinite alternate;
+        }
+
+        @keyframes entityFloat {
+            0% { transform: translateY(0) rotate(-5deg); }
+            100% { transform: translateY(-16px) rotate(6deg); }
+        }
+
+        @keyframes sparklePulse {
+            0% { transform: scale(0.8) rotate(-10deg); opacity: 0.7; }
+            100% { transform: scale(1.2) rotate(15deg); opacity: 1; }
+        }
+
+        /* Center Stage Container */
+        .stage-wrapper {
+            position: relative;
+            z-index: 10;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 20px 110px;
+        }
+
+        /* 3D Glassmorphism Gift Card */
+        .gift-stage {
+            position: relative;
+            width: 90%;
+            max-width: 480px;
+            min-height: 410px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            border-radius: 36px;
+            padding: 35px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), inset 0 0 25px rgba(255, 182, 193, 0.2);
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+
+        /* Tornado Whirlwind 3D Spin Animations */
+        .tornado-out {
+            animation: tornadoSpinOut 0.7s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards !important;
+        }
+
+        .tornado-in {
+            animation: tornadoSpinIn 0.75s cubic-bezier(0.215, 0.61, 0.355, 1) forwards !important;
+        }
+
+        @keyframes tornadoSpinOut {
+            0% {
+                transform: scale(1) rotate(0deg) rotateY(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(0.4) rotate(720deg) rotateY(540deg) translateY(-80px);
+                opacity: 0.6;
+                filter: blur(4px);
+            }
+            100% {
+                transform: scale(0) rotate(1440deg) rotateY(1080deg) translateY(-150px);
+                opacity: 0;
+                filter: blur(10px);
+            }
+        }
+
+        @keyframes tornadoSpinIn {
+            0% {
+                transform: scale(0) rotate(-1440deg) rotateY(-1080deg) translateY(150px);
+                opacity: 0;
+                filter: blur(10px);
+            }
+            50% {
+                transform: scale(0.5) rotate(-720deg) rotateY(-540deg) translateY(50px);
+                opacity: 0.7;
+                filter: blur(4px);
+            }
+            100% {
+                transform: scale(1) rotate(0deg) rotateY(0deg) translateY(0);
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        /* 3D Interactive Gift Box */
+        .box-container {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .box-container:hover {
+            transform: scale(1.08);
+        }
+
+        .box-container:active {
+            transform: scale(0.95);
+        }
+
+        .box-visual {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .box-lid {
+            font-size: 4.2rem;
+            position: absolute;
+            top: -12px;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            filter: drop-shadow(0 8px 18px rgba(255, 71, 87, 0.7));
+            animation: bounceLid 1.6s infinite ease-in-out;
+        }
+
+        @keyframes bounceLid {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .box-body {
+            font-size: 5.2rem;
+            filter: drop-shadow(0 15px 30px rgba(255, 117, 140, 0.6));
+            animation: wiggleBox 2s infinite ease-in-out;
+        }
+
+        @keyframes wiggleBox {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        .tap-prompt {
+            margin-top: 18px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #ffd700;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.9);
+            animation: pulseText 1.4s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulseText {
+            0% { opacity: 0.75; transform: scale(0.97); }
+            100% { opacity: 1; transform: scale(1.04); }
+        }
+
+        /* Revealed Gift Content */
+        .revealed-content {
+            display: none;
+            opacity: 0;
+            transform: scale(0.4) translateY(30px);
+            transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stage-opened .box-container {
+            display: none;
+        }
+
+        .stage-opened .revealed-content {
+            display: flex;
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        .gift-icon {
+            font-size: 5.2rem;
+            margin-bottom: 12px;
+            filter: drop-shadow(0 12px 30px rgba(255, 215, 0, 0.85));
+            animation: iconFloat 2.5s infinite ease-in-out alternate;
+        }
+
+        @keyframes iconFloat {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-10px) rotate(4deg); }
+        }
+
+        .gift-title {
+            font-family: 'Caveat', cursive;
+            font-size: 2.45rem;
+            color: #FFB3D1;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            text-shadow: 0 0 20px rgba(255, 179, 209, 0.7);
+        }
+
+        .gift-desc {
+            font-size: 1.06rem;
+            line-height: 1.7;
+            color: #fceef5;
+            font-weight: 500;
+        }
+
+        /* Bottom Interactive Heart Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 25px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            gap: 6px;
+        }
+
+        .heart-btn {
+            width: 78px;
+            height: 78px;
+            background: linear-gradient(135deg, #ff3838, #ff6b81);
+            border: 2.5px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.3rem;
+            cursor: pointer;
+            box-shadow: 0 0 40px rgba(255, 56, 56, 0.85), inset 0 0 15px rgba(255, 255, 255, 0.4);
+            animation: heartPulse 1.2s infinite ease-in-out;
+            transition: transform 0.15s ease;
+            outline: none;
+        }
+
+        .heart-btn:active {
+            transform: scale(0.85);
+        }
+
+        @keyframes heartPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 56, 56, 0.7); }
+            50% { transform: scale(1.14); box-shadow: 0 0 55px rgba(255, 56, 56, 1); }
+        }
+
+        .heart-label {
+            font-size: 0.95rem;
+            color: #ffd700;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+        }
+
+        /* Sparkle Particle on Tap */
+        .tap-particle {
+            position: fixed;
+            pointer-events: none;
+            font-size: 1.8rem;
+            animation: particleFly 0.8s ease-out forwards;
+            z-index: 999;
+        }
+
+        @keyframes particleFly {
+            0% { transform: scale(0.3) translateY(0); opacity: 1; }
+            100% { transform: scale(1.5) translateY(-60px); opacity: 0; }
+        }
+
+        @media (max-width: 600px) {
+            .gift-stage { padding: 28px 18px; width: 92%; min-height: 370px; }
+            .gift-title { font-size: 2.05rem; }
+            .gift-desc { font-size: 0.98rem; }
+            .box-lid { font-size: 3.6rem; }
+            .box-body { font-size: 4.4rem; }
+            .heart-btn { width: 68px; height: 68px; font-size: 1.95rem; }
+            .moon { width: 65px; height: 65px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="lightning-overlay"></div>
+    <canvas id="sky-canvas"></canvas>
+
+    <!-- Glowing Moon -->
+    <div class="moon-wrapper">
+        <div class="moon"></div>
+    </div>
+
+    <!-- Center Stage Container -->
+    <div class="stage-wrapper">
+        <div class="gift-stage" id="giftStage">
+            <!-- Box (Unopened State) -->
+            <div class="box-container" id="boxContainer" onclick="openCurrentBox()">
+                <div class="box-visual">
+                    <div class="box-lid">🎀</div>
+                    <div class="box-body">🎁</div>
+                </div>
+                <div class="tap-prompt">✨ Touch Gift Box to Open ✨</div>
+            </div>
+
+            <!-- Revealed Content State -->
+            <div class="revealed-content" id="revealedContent">
+                <div class="gift-icon" id="giftIcon">🏆💖</div>
+                <h2 class="gift-title" id="giftTitle">World's #1 Best Girlfriend</h2>
+                <p class="gift-desc" id="giftDesc">Intha ulagathulaye en chellakutty thaan the most beautiful, caring and irreplaceable girl! Certified by my heart forever di!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fixed Bottom Heart Controller -->
+    <div class="bottom-nav">
+        <button class="heart-btn" id="heartBtn" title="Touch to summon Tornado & Next Surprise!">💖</button>
+        <div class="heart-label" id="heartLabel">Touch Heart for Next Surprise ⚡</div>
+    </div>
+
+    <script>
+        // --- 10 Romantic & Funny Gifts Data ---
+        const gifts = [
+            {
+                icon: '🏆💖',
+                title: "World's #1 Best Girlfriend",
+                desc: 'Intha ulagathulaye en chellakutty thaan the most beautiful, caring and irreplaceable girl! Certified by my heart forever di!'
+            },
+            {
+                icon: '👑✨',
+                title: '100% Loyal Queen Award',
+                desc: 'Only en mela mattum true love vechi, vera yendha pasangalaiyum thirumbi kooda paakadha un pure heart-ku intha golden crown unakku thaan!'
+            },
+            {
+                icon: '📜⚖️',
+                title: 'The "Always Right" License',
+                desc: 'Inimel entha chinna sandai vanthalum, 2 + 2 = 5 nu nee sonna kooda athu thaan correct-u! Arguments-la full surrender naan!'
+            },
+            {
+                icon: '🍕🍔',
+                title: 'The "Enaku Therila" Menu',
+                desc: 'Nee "Edhavadhu vaangiko" nu solra mysterious question-ku un favorite tasty treats-ah correct-aa deliver panna intha magic pass!'
+            },
+            {
+                icon: '🧸💆‍♀️',
+                title: '24/7 Human Teddy Bear Coupon',
+                desc: 'Unakku tired-aa irunthaalum sari, moody-aa irunthaalum sari... unlimited cuddles, shoulder to sleep, and warm head massage guaranteed!'
+            },
+            {
+                icon: '🧊🍦',
+                title: 'Cute Anger Management Kit',
+                desc: 'Nee chinna vishayathuku kova-pattu cute-aa moracha kooda, unna ice creams and forehead kisses panni cool panna intha anti-anger medal!'
+            },
+            {
+                icon: '💎❤️',
+                title: 'Billion-Dollar Diamond Heart',
+                desc: 'Naan evlo mokka joke pottaalum poruthukitu, en mela anbu mattum kaatradhuku intha precious billion-dollar diamond unakku!'
+            },
+            {
+                icon: '🎧🚗',
+                title: 'Personal DJ & Voice Listener',
+                desc: 'Un 5-minute continuous voice notes and car-la nee select panra full playlist-ah zero skips-oda kekka lifetime VIP pass!'
+            },
+            {
+                icon: '🎟️💋',
+                title: 'Unlimited Kisses & Hugs Token',
+                desc: 'Intha token-ku expiry date-ae illa! Ennaiku venumnaalum, ethanai thadava venumnaalum redeem pannikalaam with 100% pure love!'
+            },
+            {
+                icon: '💍♾️',
+                title: 'Forever Partner Agreement',
+                desc: 'Signed with true love! En kadasi moochu vara naan un koodave thaan irupen. No cancellation, no return policy! You are mine forever! 💖'
+            }
+        ];
+
+        let currentIndex = 0;
+        let isOpened = false;
+        let isTransitioning = false;
+
+        const giftStage = document.getElementById('giftStage');
+        const giftIcon = document.getElementById('giftIcon');
+        const giftTitle = document.getElementById('giftTitle');
+        const giftDesc = document.getElementById('giftDesc');
+        const heartBtn = document.getElementById('heartBtn');
+        const heartLabel = document.getElementById('heartLabel');
+        const lightningOverlay = document.getElementById('lightning-overlay');
+
+        // --- Canvas for Sky, Stars, Lightning & Tornado Vortex Particles ---
+        const canvas = document.getElementById('sky-canvas');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+        let shootingStars = [];
+        let lightningBolts = [];
+        let vortexParticles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initStars();
+        }
+
+        function initStars() {
+            stars = [];
+            const count = Math.floor((canvas.width * canvas.height) / 4500);
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 1.6 + 0.4,
+                    alpha: Math.random(),
+                    speed: Math.random() * 0.02 + 0.005,
+                    color: Math.random() > 0.3 ? '#FFFFFF' : (Math.random() > 0.5 ? '#FFD1DC' : '#FFEAA7')
+                });
+            }
+        }
+
+        // --- Shooting Stars ---
+        class ShootingStar {
+            constructor(startX, startY) {
+                this.x = startX || Math.random() * canvas.width * 0.8;
+                this.y = startY || Math.random() * (canvas.height * 0.4);
+                this.len = Math.random() * 120 + 80;
+                this.speed = Math.random() * 7 + 9;
+                this.angle = Math.PI / 4 + (Math.random() - 0.5) * 0.15;
+                this.opacity = 1;
+                this.decay = Math.random() * 0.015 + 0.012;
+            }
+            update(index) {
+                this.x += Math.cos(this.angle) * this.speed;
+                this.y += Math.sin(this.angle) * this.speed;
+                this.opacity -= this.decay;
+                if (this.opacity <= 0) shootingStars.splice(index, 1);
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = Math.max(0, this.opacity);
+                const tailX = this.x - Math.cos(this.angle) * this.len;
+                const tailY = this.y - Math.sin(this.angle) * this.len;
+                
+                const grad = ctx.createLinearGradient(this.x, this.y, tailX, tailY);
+                grad.addColorStop(0, '#FFF');
+                grad.addColorStop(0.3, 'rgba(255, 117, 140, 0.8)');
+                grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+                
+                ctx.strokeStyle = grad;
+                ctx.lineWidth = 2.2;
+                ctx.lineCap = 'round';
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(tailX, tailY);
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+
+        // --- Electric Lightning Bolts ---
+        class LightningBolt {
+            constructor(startX, startY, endX, endY) {
+                this.segments = [];
+                this.opacity = 1;
+                this.color = Math.random() > 0.5 ? '#FF758C' : '#E056FD';
+                this.generate(startX, startY, endX, endY);
+            }
+            generate(x1, y1, x2, y2) {
+                let curX = x1, curY = y1;
+                this.segments.push({ x: curX, y: curY });
+                
+                const steps = 14;
+                const dx = (x2 - x1) / steps;
+                const dy = (y2 - y1) / steps;
+                
+                for (let i = 0; i < steps; i++) {
+                    curX += dx + (Math.random() - 0.5) * 35;
+                    curY += dy + (Math.random() - 0.5) * 20;
+                    this.segments.push({ x: curX, y: curY });
+                }
+                this.segments.push({ x: x2, y: y2 });
+            }
+            update(index) {
+                this.opacity -= 0.08;
+                if (this.opacity <= 0) lightningBolts.splice(index, 1);
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = Math.max(0, this.opacity);
+                ctx.strokeStyle = '#FFFFFF';
+                ctx.lineWidth = 3.5;
+                ctx.shadowBlur = 20;
+                ctx.shadowColor = this.color;
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                ctx.beginPath();
+                this.segments.forEach((pt, idx) => {
+                    if (idx === 0) ctx.moveTo(pt.x, pt.y);
+                    else ctx.lineTo(pt.x, pt.y);
+                });
+                ctx.stroke();
+                ctx.restore();
+            }
+        }
+
+        // --- Tornado Vortex Particles ---
+        class VortexParticle {
+            constructor() {
+                this.angle = Math.random() * Math.PI * 2;
+                this.radius = Math.random() * 260 + 40;
+                this.speed = Math.random() * 0.16 + 0.12;
+                this.y = (Math.random() - 0.5) * canvas.height;
+                this.vy = (Math.random() - 0.5) * 10;
+                this.size = Math.random() * 3 + 2;
+                this.color = ['#FF758C', '#E056FD', '#FFD700', '#FFFFFF'][Math.floor(Math.random() * 4)];
+                this.alpha = 1;
+                this.life = Math.random() * 30 + 40;
+            }
+            update(index) {
+                this.angle += this.speed;
+                this.radius *= 0.95;
+                this.y += this.vy;
+                this.life--;
+                this.alpha = this.life / 60;
+                if (this.life <= 0 || this.radius <= 5) vortexParticles.splice(index, 1);
+            }
+            draw() {
+                const cx = canvas.width / 2;
+                const cy = canvas.height / 2;
+                const px = cx + Math.cos(this.angle) * this.radius;
+                const py = cy + this.y + Math.sin(this.angle) * (this.radius * 0.4);
+                
+                ctx.save();
+                ctx.globalAlpha = Math.max(0, this.alpha);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 12;
+                ctx.shadowColor = this.color;
+                ctx.beginPath();
+                ctx.arc(px, py, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function triggerThunderLightning(targetX, targetY) {
+            const sx = Math.random() * canvas.width;
+            const tx = targetX || canvas.width / 2;
+            const ty = targetY || canvas.height / 2;
+            
+            lightningBolts.push(new LightningBolt(sx, 0, tx, ty));
+            if (Math.random() > 0.4) {
+                lightningBolts.push(new LightningBolt(sx + (Math.random() * 80 - 40), 0, tx + (Math.random() * 60 - 30), ty));
+            }
+
+            // Flash screen
+            lightningOverlay.style.opacity = '0.9';
+            setTimeout(() => { lightningOverlay.style.opacity = '0'; }, 90);
+            setTimeout(() => { lightningOverlay.style.opacity = '0.5'; }, 140);
+            setTimeout(() => { lightningOverlay.style.opacity = '0'; }, 220);
+
+            playThunderSound();
+        }
+
+        function triggerTornadoVortex() {
+            for (let i = 0; i < 90; i++) {
+                vortexParticles.push(new VortexParticle());
+            }
+        }
+
+        setInterval(() => {
+            if (shootingStars.length < 4) shootingStars.push(new ShootingStar());
+        }, 1300);
+
+        function renderSky() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Stars
+            stars.forEach(s => {
+                ctx.save();
+                ctx.globalAlpha = Math.abs(Math.sin(s.alpha));
+                ctx.fillStyle = s.color;
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+                s.alpha += s.speed;
+            });
+
+            // Shooting Stars
+            shootingStars.forEach((st, i) => { st.update(i); st.draw(); });
+
+            // Lightning Bolts
+            lightningBolts.forEach((lb, i) => { lb.update(i); lb.draw(); });
+
+            // Tornado Vortex
+            vortexParticles.forEach((vp, i) => { vp.update(i); vp.draw(); });
+
+            requestAnimationFrame(renderSky);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        renderSky();
+
+        // --- Babies Spawning in Random Areas ---
+        const babyTypes = [
+            { char: '👶', prop: '🍼' },
+            { char: '👼', prop: '💖' },
+            { char: '👶', prop: '🧸' },
+            { char: '👼', prop: '✨' },
+            { char: '👶', prop: '🌸' },
+            { char: '👼', prop: '⭐' }
+        ];
+
+        function spawnRandomBaby() {
+            const baby = document.createElement('div');
+            baby.className = 'random-baby';
+            const chosen = babyTypes[Math.floor(Math.random() * babyTypes.length)];
+            baby.innerHTML = `<span>${chosen.char}</span><span class="baby-prop">${chosen.prop}</span>`;
+
+            // Completely random area across screen
+            const randomX = Math.random() * 80 + 10;
+            const randomY = Math.random() * 75 + 10;
+            baby.style.left = `${randomX}vw`;
+            baby.style.top = `${randomY}vh`;
+
+            document.body.appendChild(baby);
+            setTimeout(() => { baby.remove(); }, 6000);
+        }
+
+        setInterval(spawnRandomBaby, 2200);
+        spawnRandomBaby();
+
+        // --- Celestial Fairies & Flying Wings ---
+        const celestialDeck = [
+            { e: '🧚‍♀️', s: '✨💖' },
+            { e: '👼', s: '🏹💕' },
+            { e: '🦋', s: '🌸💫' },
+            { e: '🕊️', s: '💌💞' },
+            { e: '🦄', s: '🌈✨' },
+            { e: '🪄', s: '💗⭐' }
+        ];
+
+        function spawnCelestialEntity() {
+            const el = document.createElement('div');
+            el.className = 'celestial-entity';
+            const item = celestialDeck[Math.floor(Math.random() * celestialDeck.length)];
+            el.innerHTML = `<span class="entity">${item.e}</span><span class="sparkle-trail">${item.s}</span>`;
+            
+            const topPos = Math.random() * 70 + 5;
+            const duration = Math.random() * 4 + 9;
+            
+            el.style.top = topPos + 'vh';
+            el.style.left = '-120px';
+            el.style.transition = `transform ${duration}s linear`;
+            
+            document.body.appendChild(el);
+
+            setTimeout(() => {
+                el.style.transform = `translateX(${window.innerWidth + 240}px)`;
+            }, 50);
+
+            setTimeout(() => { el.remove(); }, duration * 1000 + 500);
+        }
+
+        setInterval(spawnCelestialEntity, 2500);
+        spawnCelestialEntity();
+
+        // --- Synthesized Sound Effects (Thunder, Fanfare, Whoosh) ---
+        let audioCtx = null;
+
+        function getAudioContext() {
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            return audioCtx;
+        }
+
+        function playThunderSound() {
+            try {
+                const ctx = getAudioContext();
+                // Low rumble oscillator
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(85, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(25, ctx.currentTime + 1.2);
+
+                gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.2);
+
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+
+                osc.start();
+                osc.stop(ctx.currentTime + 1.2);
+            } catch(e) {}
+        }
+
+        function playBoxOpenSound() {
+            try {
+                const ctx = getAudioContext();
+                const notes = [523.25, 659.25, 783.99, 1046.50, 1318.51, 1567.98];
+                notes.forEach((freq, i) => {
+                    setTimeout(() => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+                        gain.gain.setValueAtTime(0, ctx.currentTime);
+                        gain.gain.linearRampToValueAtTime(0.09, ctx.currentTime + 0.05);
+                        gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 1.3);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start();
+                        osc.stop(ctx.currentTime + 1.3);
+                    }, i * 60);
+                });
+            } catch(e) {}
+        }
+
+        function playTornadoWhoosh() {
+            try {
+                const ctx = getAudioContext();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(140, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(450, ctx.currentTime + 0.4);
+                osc.frequency.exponentialRampToValueAtTime(80, ctx.currentTime + 0.8);
+
+                gain.gain.setValueAtTime(0.01, ctx.currentTime);
+                gain.gain.linearRampToValueAtTime(0.12, ctx.currentTime + 0.3);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.8);
+
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+
+                osc.start();
+                osc.stop(ctx.currentTime + 0.8);
+            } catch(e) {}
+        }
+
+        // --- Box Opening Function ---
+        function openCurrentBox() {
+            if (isOpened || isTransitioning) return;
+            isOpened = true;
+            giftStage.classList.add('stage-opened');
+            playBoxOpenSound();
+            triggerThunderLightning(window.innerWidth / 2, window.innerHeight * 0.4);
+        }
+
+        // --- Next Gift with Tornado & Thunder Transition ---
+        heartBtn.addEventListener('click', () => {
+            if (isTransitioning) return;
+            isTransitioning = true;
+
+            // Trigger Thunder & Tornado Effects
+            triggerThunderLightning(window.innerWidth / 2, window.innerHeight / 2);
+            triggerTornadoVortex();
+            playTornadoWhoosh();
+
+            // Tornado Out Animation
+            giftStage.classList.remove('tornado-in');
+            giftStage.classList.add('tornado-out');
+
+            setTimeout(() => {
+                // Update to Next Gift
+                currentIndex = (currentIndex + 1) % gifts.length;
+                const currentGift = gifts[currentIndex];
+
+                giftIcon.innerText = currentGift.icon;
+                giftTitle.innerText = currentGift.title;
+                giftDesc.innerText = currentGift.desc;
+
+                // Reset box state to unopened
+                isOpened = false;
+                giftStage.classList.remove('stage-opened');
+
+                // Tornado In Animation
+                giftStage.classList.remove('tornado-out');
+                giftStage.classList.add('tornado-in');
+
+                if (currentIndex === gifts.length - 1) {
+                    heartLabel.innerText = "Touch Heart to Loop with Love 💖";
+                } else {
+                    heartLabel.innerText = "Touch Heart for Next Surprise ⚡";
+                }
+
+                setTimeout(() => {
+                    giftStage.classList.remove('tornado-in');
+                    isTransitioning = false;
+                }, 750);
+
+            }, 700);
+        });
+
+        // Tap Sparkles anywhere
+        window.addEventListener('click', (e) => {
+            if (e.target === heartBtn || e.target.closest('#boxContainer')) return;
+            const p = document.createElement('div');
+            p.className = 'tap-particle';
+            p.innerText = ['💖', '✨', '⚡', '👶', '🧸', '💫', '🍼'][Math.floor(Math.random() * 7)];
+            p.style.left = (e.clientX - 16) + 'px';
+            p.style.top = (e.clientY - 16) + 'px';
+            document.body.appendChild(p);
+            setTimeout(() => p.remove(), 800);
+        });
+    </script>
+</body>
+</html>
